@@ -68,17 +68,17 @@ class CoxyDashboard {
 
 	/**
 	 * Page Title
-	 * @param string $admin_title 
-	 * @param string $title 
+	 * @param string $admin_title
+	 * @param string $title
 	 * @return string
 	 */
 
 	public function page_title($admin_title, $title){
-	
+
 		global $pagenow;
         if( 'admin.php' == $pagenow && isset( $_GET['page'] ) && $this->slug == $_GET['page'] ) $admin_title = $this->title;
         return $admin_title;
-    
+
 	}
 
 	/**
@@ -94,7 +94,7 @@ class CoxyDashboard {
 		global $submenu;
 
 		// Add & Remove Pages
-		add_menu_page('Coxy Dashboard', 'Coxy Dashboard', 'manage_options', $this->slug, function(){ $this->template_include('dashboard.php'); });
+		add_menu_page('Coxy Dashboard', 'Coxy Dashboard', 'read', $this->slug, function(){ $this->template_include('dashboard.php'); });
 		remove_menu_page($this->slug);
 
 		// Set Active Menu Item
@@ -111,7 +111,7 @@ class CoxyDashboard {
 
 	/**
 	 * Which Template
-	 * @param string $template 
+	 * @param string $template
 	 * @return string
 	 */
 
@@ -132,9 +132,9 @@ class CoxyDashboard {
 
 	/**
 	 * Include a Template
-	 * @param string $template 
-	 * @param * $data 
-	 * @param string $name 
+	 * @param string $template
+	 * @param * $data
+	 * @param string $name
 	 * @return null
 	 */
 
@@ -148,7 +148,7 @@ class CoxyDashboard {
 
 	/**
 	 * Redirect
-	 * @param string $path 
+	 * @param string $path
 	 * @return null
 	 */
 
@@ -170,7 +170,3 @@ class CoxyDashboard {
 // ------------------------------------
 
 $coxy_dashboard = new CoxyDashboard();
-
-
-
-
